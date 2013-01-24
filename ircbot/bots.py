@@ -92,7 +92,7 @@ class IrcBot(object):
 
     def handle_msg_recv(self, message):
         if self.debug:
-            logger.info('> ' + str(message))
+            logger.info('>>> ' + str(message))
 
         if 'ping' == message.command:
             self.send('PONG', message.args[0])
@@ -131,6 +131,6 @@ class IrcBot(object):
     def send(self, *message):
         msg = ' '.join(message)
         if self.debug:
-            logger.info('< ' + msg)
+            logger.info('<<< ' + msg)
         self.irc.send('%s\n\r' % msg)
 
