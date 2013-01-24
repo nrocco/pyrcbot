@@ -37,9 +37,7 @@ class IrcBot(object):
         self.irc.connect((self.host, self.port))
 
         self.authorize()
-        time.sleep(4)
         self.current_channels = []
-        self.join(self.channels)
 
     def disconnect(self, message=None):
         self.send('QUIT', ':%s' % message)
@@ -103,6 +101,8 @@ class IrcBot(object):
             self.current_channels.remove(message.args[0])
         elif 'error' == message.command:
             raise KeyboardInterrupt()
+        elif '004' == message.command:
+            self.join(self.channels)
 
         for callback_method in self.get_handlers_for(message.command):
             callback_method(*message.args, message=message)
