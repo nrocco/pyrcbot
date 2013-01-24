@@ -61,6 +61,9 @@ class IrcBot(object):
             channel = ','.join(channel)
         self.send('JOIN', channel)
 
+    def leave(self, channel):
+        self.send('LEAVE', channel)
+
     def listen(self):
         buffer = ''
         try:
