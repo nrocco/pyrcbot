@@ -19,8 +19,6 @@ class IrcBot(object):
     irc = None
 
     def __init__(self, *args, **kwargs):
-        self.debug = kwargs.get('debug', True)
-
         self.nickname = kwargs.get('nickname', None)
         self.password = kwargs.get('password', None)
         self.fullname = kwargs.get('fullname', None)
@@ -91,8 +89,7 @@ class IrcBot(object):
         return 0
 
     def handle_msg_recv(self, message):
-        if self.debug:
-            logger.info('>>> ' + str(message))
+        logger.debug('>>> ' + str(message))
 
         if 'ping' == message.command:
             self.send('PONG', message.args[0])
@@ -130,7 +127,6 @@ class IrcBot(object):
 
     def send(self, *message):
         msg = ' '.join(message)
-        if self.debug:
-            logger.info('<<< ' + msg)
+        logger.debug('<<< ' + msg)
         self.irc.send('%s\n\r' % msg)
 

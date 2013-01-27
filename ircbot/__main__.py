@@ -9,7 +9,9 @@ if '__main__' == __name__:
     logging.basicConfig(level=logging.INFO, 
                         format='%(asctime)-15s %(message)s')
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        prog='python -m ircbot',
+        description='Run a -- pretty useless -- ircbot')
     parser.add_argument("host", help="The host to connect to.")
     parser.add_argument("port", help="The port to connect to.", type=int)
     parser.add_argument("channels", help="Comma seperated list of "
