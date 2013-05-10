@@ -6,7 +6,7 @@ from ircbot.bots import IrcBot
 
 if '__main__' == __name__:
 
-    logging.basicConfig(level=logging.INFO, 
+    logging.basicConfig(level=logging.INFO,
                         format='%(asctime)-15s %(message)s')
 
     parser = argparse.ArgumentParser(
@@ -21,7 +21,7 @@ if '__main__' == __name__:
                         "by the server you are connecting to.")
     args = parser.parse_args()
 
-    bot = IrcBot(nickname=args.nick, 
+    bot = IrcBot(nickname=args.nick,
                  password=args.password,
                  debug=True,
                  fullname='I am a bot',
@@ -30,4 +30,3 @@ if '__main__' == __name__:
     retval = bot.listen()
 
     sys.exit(retval)
-
