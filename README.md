@@ -4,8 +4,8 @@ ircbot
 A python module for rapidly creating ircbots.
 
 
-Usage
-=====
+usage
+-----
 
     usage: python -m ircbot [-h] host port channels nick password
 
@@ -21,8 +21,8 @@ Usage
       -h, --help  show this help message and exit
 
 
-Installation
-============
+installation
+------------
 
 Preferably in a virtual environment:
 
@@ -31,8 +31,8 @@ Preferably in a virtual environment:
     $ python setup.py install
 
 
-Examples
-========
+examples
+--------
 
 Here are some examples of how to use the ircbot module.
 
@@ -82,4 +82,3 @@ channels when invited.
 
 The irc bot above will respond to the `INVITE` irc command and will join the
 channel it was invited to.
-
